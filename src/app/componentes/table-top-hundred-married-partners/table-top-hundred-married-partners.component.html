@@ -1,0 +1,22 @@
+  <div class="main-card mb-3 card tableFixHead">
+    <div class="card-header">Punto 3
+    </div>
+    <div class="table-responsive">
+        <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+            <thead class="table-dark">
+            <tr>
+                <th class="text-center">NOMBRE</th>
+                <th class="text-center">EDAD</th>
+                <th class="text-center">EQUIPO</th>
+            </tr>
+            </thead>
+            <tbody class="overflow-auto" style="height: 50vh;">
+            <tr *ngFor="let socio of data ">
+                <td class="text-center">{{socio.nombre}}</td>
+                <td class="text-center">{{socio.edad}}</td>
+                <td class="text-center text-muted">{{socio.equipo}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

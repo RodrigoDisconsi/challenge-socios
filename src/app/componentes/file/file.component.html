@@ -1,0 +1,9 @@
+<p-card class="text-center" header="Seleccione un archivo .csv" [style]="{width: '400px'}" styleClass="p-card-shadow">
+    <div class="d-flex justify-content-center">
+        <p-fileUpload [customUpload]="true" accept=".csv" #file mode="basic" (onSelect)="onUpload($event)" chooseLabel="Porfavor seleccione un archivo.."></p-fileUpload>
+    </div>
+<ng-template pTemplate="footer">
+    <p-button class="p-fluid" label="Enviar" icon="pi pi-check" (click)="parseData()"></p-button>
+    <p-button class="p-fluid" icon="pi pi-times" styleClass="p-button-secondary" [style]="{'margin-top': '.5em'}" label="Limpiar" (click)="clearData()"></p-button>
+</ng-template>
+</p-card>

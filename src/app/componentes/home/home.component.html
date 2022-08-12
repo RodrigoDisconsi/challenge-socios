@@ -1,0 +1,47 @@
+<div class="container-fluid">
+    <div class="row vertical-align">
+        <div class="col">
+            <app-file></app-file>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row vertical-align mt-5" style="margin-left: 5rem;">
+    <div class="col-3 offset-1">
+      <div *ngIf="socios" class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title text-center">Cantidad de socios total</h5>
+            <p class="card-text text-center">{{socios.length}}</p>
+          </div>
+        </div>
+        <div *ngIf="socios" class="card mt-3" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title text-center">Promedio edad Racing</h5>
+            <p class="card-text text-center">{{(socios | sociosPromEdadPerClub: ['Racing'])[0].promedioEdad}}</p>
+          </div>
+        </div>
+        <div *ngIf="socios" class="card mt-3" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title text-center">Nombres comunes River</h5>
+            <ul class="list-group">
+              <li *ngFor="let topFiveName of (socios | fiveCommonNamesTeam: 'River')" class="list-group-item d-flex justify-content-between align-items-center">
+                {{topFiveName.name}}
+                <span class="badge bg-primary rounded-pill">{{topFiveName.cantidad}}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </div>
+    <div class="col-4">
+      <div *ngIf="socios">
+          <app-table [data]="(socios | sociosPromEdadPerClub: equipos)"></app-table>
+      </div>
+  </div>
+  <div class="col-4 ml-2">
+    <div *ngIf="socios">
+      <app-table-top-hundred-married-partners [data]="(socios | topHundredPartnerMarried)"></app-table-top-hundred-married-partners>
+    </div>
+  </div> 
+  </div>
+</div>
